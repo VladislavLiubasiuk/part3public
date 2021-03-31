@@ -7,7 +7,7 @@ def pytest_addoption(parser):
                      help = "Need language")
 
 @pytest.fixture(scope="function")
-def browser():
+def browser(request):
     user_language = request.config.getoption("language")
     options = Options()
     options.add_experimental_option("prefs", {"intl.accept_languages": user_language})
